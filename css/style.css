@@ -21,11 +21,13 @@ body {
 #content-Sunrise
 {
 	font-size: 25pt;
+	color: #ffff00;
 }
 
 #content-Sunset
 {
 	font-size: 25pt;
+	color: #ffc561;
 }
 
 #content-text {

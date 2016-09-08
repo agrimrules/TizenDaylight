@@ -42,6 +42,7 @@ window.onload = function() {
     	sunrise,
     	sunset;
     	IPinfo = getIPLocation();
+    	console.log(IPinfo);
     	xmlHttp.overrideMimeType("application/json");
     	xmlHttp.open("GET","http://api.sunrise-sunset.org/json?lat="+IPinfo.lat+"&lng="+IPinfo.lon+"&formatted=0", false);
     	xmlHttp.onreadystatechange = function () {
@@ -49,6 +50,8 @@ window.onload = function() {
     			SunRes = JSON.parse(xmlHttp.responseText);
     			sunrise = new tizen.TZDate(new Date(SunRes.results.sunrise)).toLocaleTimeString();
     			sunset = new tizen.TZDate(new Date(SunRes.results.sunset)).toLocaleTimeString();
+    			console.log(sunrise);
+    			console.log(sunset);
     			elSunset.innerHTML = 'Sunset: '+sunset;
     			elSunrise.innerHTML = 'Sunrise: '+sunrise;
     		}
