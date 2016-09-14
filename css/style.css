@@ -14,9 +14,9 @@ body {
 }
 .contents {
     display: flex;
-    margin-left: 20%;
+    margin-left: 15%;
     flex-direction: column;
-    margin-top: 40%;
+    margin-top: 20%;
 }
 #content-Sunrise
 {
@@ -29,6 +29,18 @@ body {
 {
 	font-size: 25pt;
 	color: #ffc561;
+}
+
+#icon-Sunrise
+{
+	width: 64px;
+	height: 64px;
+}
+
+#icon-Sunset
+{
+	width: 64px;
+	height: 64px;
 }
 
 #content-text {

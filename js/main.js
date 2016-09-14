@@ -1,7 +1,4 @@
 window.onload = function() {
-    // TODO:: Do your initialization job
-
-    // add eventListener for tizenhwkey
     document.addEventListener('tizenhwkey', function(e) {
         if (e.keyName === "back") {
             try {
@@ -26,7 +23,15 @@ window.onload = function() {
     			return null;
     		}
     	};
+    	try{
     	xmlHttp.send();
+    	}
+    	catch(e){
+    	var tl =	document.querySelector("#content-Sunrise");
+    	var bl =	document.querySelector("#content-Sunset");
+    	tl.innerHTML = "No Internet";
+    	bl.innerHTML = "Access!";
+    	}
     	return xmlHttp.onreadystatechange();
     }
     
@@ -42,16 +47,13 @@ window.onload = function() {
     	sunrise,
     	sunset;
     	IPinfo = getIPLocation();
-    	console.log(IPinfo);
     	xmlHttp.overrideMimeType("application/json");
     	xmlHttp.open("GET","http://api.sunrise-sunset.org/json?lat="+IPinfo.lat+"&lng="+IPinfo.lon+"&formatted=0", false);
     	xmlHttp.onreadystatechange = function () {
     		if(xmlHttp.readyState === 4) {
     			SunRes = JSON.parse(xmlHttp.responseText);
-    			sunrise = new tizen.TZDate(new Date(SunRes.results.sunrise)).toLocaleTimeString();
-    			sunset = new tizen.TZDate(new Date(SunRes.results.sunset)).toLocaleTimeString();
-    			console.log(sunrise);
-    			console.log(sunset);
+    			sunrise = new tizen.TZDate(new Date(SunRes.results.sunrise),tizen.time.getLocalTimezone()).toLocaleTimeString();
+    			sunset = new tizen.TZDate(new Date(SunRes.results.sunset),tizen.time.getLocalTimezone()).toLocaleTimeString();
     			elSunset.innerHTML = 'Sunset: '+sunset;
     			elSunrise.innerHTML = 'Sunrise: '+sunrise;
     		}
