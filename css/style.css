@@ -14,7 +14,7 @@ body {
 }
 .contents {
     display: flex;
-    margin-left: 15%;
+    margin-left: 18%;
     flex-direction: column;
     margin-top: 20%;
 }
@@ -35,12 +35,14 @@ body {
 {
 	width: 64px;
 	height: 64px;
+	padding-left: 70px;
 }
 
 #icon-Sunset
 {
 	width: 64px;
 	height: 64px;
+	padding-left: 70px;
 }
 
 #content-text {
