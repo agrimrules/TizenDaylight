@@ -9,18 +9,21 @@
     <title>Sunrise Sunset</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script src="js/daylight.js"></script>
 </head>
 
 <body>
-    <div id="main" class="page">
-        <div class="contents">
-        <img id="icon-Sunrise" src="./assets/sunrise.png">
-            <span id="content-Sunrise"><br></span>
-            <span id="content-Sunset"></span>
-        <img id="icon-Sunset" src="./assets/sunset.png">
-        </div>
-    </div>
+<div ng-app="myApp">
+<div ng-controller="myCtrl">
+		<div class="contents">
+        	<img id="icon-Sunrise" src="./assets/sunrise.png"><br>
+			<span id="content-Sunrise">{{sunrise}}</span><br>
+			<span id="content-Sunset">{{sunset}}</span><br>
+			<img id="icon-Sunset" src="./assets/sunset.png">
+		</div>
+</div>
+</div>
 </body>
 
 </html>

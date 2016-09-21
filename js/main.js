@@ -26,7 +26,7 @@ window.onload = function() {
     			lat = res.lat;
     			lon = res.lon;
     			var xmlHttp2 = new XMLHttpRequest();
-    			xmlHttp2.onload = function() {
+    			xmlHttp2.onreadystatechange = function() {
     				if(xmlHttp2.status === 200 && xmlHttp2.readyState === 4) {
     					SunRes = JSON.parse(xmlHttp2.responseText);
     					sunrise = new tizen.TZDate(new Date(SunRes.results.sunrise),tizen.time.getLocalTimezone()).toLocaleTimeString();
@@ -45,5 +45,5 @@ window.onload = function() {
     	
     }
     
-    getTimeSpan();
+//    getTimeSpan();
 };
