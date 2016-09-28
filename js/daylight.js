@@ -7,7 +7,7 @@ document.addEventListener('tizenhwkey', function(e) {
         }
     });
 
-angular.module('myApp',[])
+angular.module('myApp',['angularMoment'])
 .controller('myCtrl', function($scope, $http, $timeout){
 	$scope.sunrise = "loading";
 	$scope.sunset = "data";
@@ -24,7 +24,7 @@ angular.module('myApp',[])
 	});
 	
 	function returnformatteddate(datestring){
-		return new tizen.TZDate(new Date(datestring),tizen.time.getLocalTimezone()).toLocaleTimeString();
+		return new moment(datestring).format('h:mm a');
 	}
 	
 	var reloadPage = function() {
